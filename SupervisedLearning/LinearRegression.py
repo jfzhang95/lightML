@@ -11,7 +11,7 @@ from autograd import grad, elementwise_grad
 class LinearRegressor(object):
     """Basic linear model"""
 
-    def __init__(self, lr=0.1, reg=0.0, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, reg=0.0, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
@@ -68,7 +68,7 @@ class LinearRegressor(object):
 class RidgeRegressor(object):
     """linear model with l2 regularization"""
 
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
@@ -126,7 +126,7 @@ class RidgeRegressor(object):
 class LassoRegressor(object):
     """linear model with l1 regularization"""
 
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose

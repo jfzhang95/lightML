@@ -1,4 +1,8 @@
 # -*- coding:utf-8
+"""
+@author: Jeff Zhang
+@date: 2017-04-25
+"""
 import autograd.numpy as np
 from autograd import grad, elementwise_grad
 

@@ -8,7 +8,6 @@ from autograd import grad, elementwise_grad
 
 
 
-
 class LinearRegressor(object):
     """Basic linear model"""
 
@@ -63,9 +62,6 @@ class LinearRegressor(object):
         XMat = np.hstack([XMat, np.ones((n_samples, 1))])
         ypred = np.dot(XMat, self.W)
         return ypred
-
-
-
 
 
 
@@ -127,7 +123,6 @@ class RidgeRegressor(object):
 
 
 
-
 class LassoRegressor(object):
     """linear model with l1 regularization"""
 
@@ -181,9 +176,3 @@ class LassoRegressor(object):
         XMat = np.hstack([XMat, np.ones((n_samples, 1))])
         ypred = np.dot(XMat, self.W)
         return ypred
-
-
-
-
-
-

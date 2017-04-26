@@ -1,28 +1,18 @@
-<<<<<<< HEAD
+#!usr/bin/env python
 #-*- coding:utf-8 -*-
 """
 @author: Jeff Zhang
 @date:   2017-04-25
-=======
-# -*- coding:utf-8
 """
-@author: Jeff Zhang
-@date: 2017-04-25
->>>>>>> deb55a981410aee9616d97f2d422a69c51929d4a
-"""
+
+
 import autograd.numpy as np
 from autograd import grad, elementwise_grad
-
-
 
 class LinearRegressor(object):
     """Basic linear model"""
 
-<<<<<<< HEAD
     def __init__(self, lr=0.1, alpha=0.0, max_iters=5, verbose=0, print_step=1):
-=======
-    def __init__(self, lr=0.1, reg=0.0, max_iters=5, verbose=0, print_step=1):
->>>>>>> deb55a981410aee9616d97f2d422a69c51929d4a
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
@@ -77,14 +67,11 @@ class LinearRegressor(object):
 
 
 
+
 class RidgeRegressor(object):
     """linear model with l2 regularization"""
 
-<<<<<<< HEAD
     def __init__(self, lr=0.1, alpha=0.5, max_iters=5, verbose=0, print_step=1):
-=======
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=0, print_step=1):
->>>>>>> deb55a981410aee9616d97f2d422a69c51929d4a
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
@@ -142,11 +129,7 @@ class RidgeRegressor(object):
 class LassoRegressor(object):
     """linear model with l1 regularization"""
 
-<<<<<<< HEAD
     def __init__(self, lr=0.1, alpha=0.5, max_iters=5, verbose=0, print_step=1):
-=======
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=0, print_step=1):
->>>>>>> deb55a981410aee9616d97f2d422a69c51929d4a
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose

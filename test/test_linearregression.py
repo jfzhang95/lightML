@@ -24,9 +24,9 @@ print("shape of y_train:", y_train.shape)
 print("shape of X_test:", X_test.shape)
 print("shape of y_test:", y_test.shape)
 
-lr = LassoRegressor(lr=0.000005, reg=0.1, max_iters=20000, print_step=1000)
-lr.fit(X_train, y_train)
-y_pred = lr.predict(X_test)
+model = LassoRegressor(lr=0.000005, alpha=0.1, max_iters=20000, print_step=1000)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
 
 # 画图
 plt.plot(y_pred, 'r')

@@ -1,4 +1,8 @@
-# -*- coding:utf-8
+#-*- coding:utf-8 -*-
+"""
+@author: Jeff Zhang
+@date:   2017-04-25
+"""
 import autograd.numpy as np
 from autograd import grad, elementwise_grad
 
@@ -8,12 +12,12 @@ from autograd import grad, elementwise_grad
 class LinearRegressor(object):
     """Basic linear model"""
 
-    def __init__(self, lr=0.1, reg=0.0, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, alpha=0.0, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
         self.print_step = print_step
-        self.reg = reg
+        self.alpha = alpha
         self.W = None
 
 
@@ -54,10 +58,11 @@ class LinearRegressor(object):
 
     def predict(self, X):
         """Predict function"""
-        XMat = np.mat(X)
+        XMat = np.array(X)
         n_samples = XMat.shape[0]
         XMat = np.hstack([XMat, np.ones((n_samples, 1))])
         ypred = np.dot(XMat, self.W)
+
         return ypred
 
 
@@ -68,13 +73,13 @@ class LinearRegressor(object):
 class RidgeRegressor(object):
     """linear model with l2 regularization"""
 
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, alpha=0.5, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
         self.print_step = print_step
         self.W = None
-        self.reg = reg
+        self.alpha = alpha
 
 
     def fit(self, X, y):
@@ -82,7 +87,7 @@ class RidgeRegressor(object):
         def calc_linear_loss(W):
             y_pred = np.dot(XMat, W)
             return np.sqrt((np.power(yMat - y_pred, 2))).mean() \
-                        + np.sum(self.reg * W[0:-1] * W[0:-1])
+                        + np.sum(self.alpha * W[0:-1] * W[0:-1])
 
         verbose = self.verbose
         print_step = self.print_step
@@ -115,7 +120,7 @@ class RidgeRegressor(object):
 
     def predict(self, X):
         """Predict function"""
-        XMat = np.mat(X)
+        XMat = np.array(X)
         n_samples = XMat.shape[0]
         XMat = np.hstack([XMat, np.ones((n_samples, 1))])
         ypred = np.dot(XMat, self.W)
@@ -127,20 +132,20 @@ class RidgeRegressor(object):
 class LassoRegressor(object):
     """linear model with l1 regularization"""
 
-    def __init__(self, lr=0.1, reg=0.5, max_iters=5, verbose=1, print_step=1):
+    def __init__(self, lr=0.1, alpha=0.5, max_iters=5, verbose=0, print_step=1):
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
         self.print_step = print_step
         self.W = None
-        self.reg = reg
+        self.alpha = alpha
 
     def fit(self, X, y):
         # def loss function
         def calc_linear_loss(W):
             y_pred = np.dot(XMat, W)
             return np.sqrt((np.power(yMat - y_pred, 2))).mean() \
-                   + np.sum(self.reg * np.abs(W[0:-1]))
+                   + np.sum(self.alpha * np.abs(W[0:-1]))
 
         verbose = self.verbose
         print_step = self.print_step
@@ -172,7 +177,7 @@ class LassoRegressor(object):
 
     def predict(self, X):
         """Predict function"""
-        XMat = np.mat(X)
+        XMat = np.array(X)
         n_samples = XMat.shape[0]
         XMat = np.hstack([XMat, np.ones((n_samples, 1))])
         ypred = np.dot(XMat, self.W)

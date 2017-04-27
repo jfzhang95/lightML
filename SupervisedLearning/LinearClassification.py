@@ -11,19 +11,46 @@ from autograd import grad, elementwise_grad
 
 
 class LDA(object):
-    def __init__(self):
-        pass
+    def __init__(self, method='auto', n_components=1):
+        self.method = method
+        self.n_components = n_components
+
+
+
+    def transform(self, X, y):
+        """transform function"""
+        XMat = np.array(X)
+        yMat = np.array(y)
+
+        if XMat.shape[0] != yMat.shape[0]:
+            yMat = yMat.T
+        assert XMat.shape[0] == yMat.shape[0]
+
+        Sw, Sb = calc_Sw_Sb(XMat, yMat)
+
+        if self.method == 'svd':
+            U, S, V = np.linalg.svd(Sw)
+            S = np.diag(S)
+            Sw_inversed = V * np.linalg.pinv(S) * U.T
+            A = Sw_inversed * Sb
+        elif self.method == 'auto':
+            A = np.pinv(Sw) * Sb
+
+        eigval, eigvec = np.linalg.eig(A)
+        eigval = eigval[0:self.n_components]
+        eigvec = eigvec[:, 0:self.n_components]
+        X_transformed = XMat * eigvec
+        self.W = eigvec[:, 1]
+
+        return X_transformed
 
     def fit(self, X, y):
-        # def loss function
-        pass
+        X_transformed = LDA.transform(X, y)
+
+
 
     def predict(self, X):
-        """Predict function"""
         pass
-
-
-
 
 
 
@@ -99,8 +126,25 @@ class LogisticRegression(object):
         return ypred
 
 
+def calc_Sw_Sb(X, y):
+    XMat = np.array(X)
+    yMat = np.array(y)
+    n_samples, n_features = XMat.shape
 
+    Sw = np.zeros((n_features, n_features))
+    Sb = np.zeros((n_features, n_features))
 
+    X_cov = np.cov(XMat.T)
+
+    labels = np.unique(yMat)
+    for c in range(len(labels)):
+        idx = np.squeeze(np.where(yMat == labels[c]))
+        X_c = np.squeeze(XMat[idx[0],:])
+        X_c_cov = np.cov(X_c.T)
+        Sw += float(idx.shape[0]) / n_samples * X_c_cov
+
+    Sb = X_cov - Sw
+    return Sw, Sb
 
 def sigmoid(x=None):
     return 1.0 / (1 + np.exp(-x))

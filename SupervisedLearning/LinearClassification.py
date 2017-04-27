@@ -2,20 +2,17 @@
 #-*- coding:utf-8 -*-
 """
 @author: Jeff Zhang
-@date:   2017-04-26
+@date:   2017-04-27
 """
 
 import autograd.numpy as np
 from autograd import grad, elementwise_grad
-
+from scipy.linalg import eig
 
 
 class LDA(object):
-    def __init__(self, method='auto', n_components=1):
-        self.method = method
+    def __init__(self, n_components=1):
         self.n_components = n_components
-
-
 
     def transform(self, X, y):
         """transform function"""
@@ -26,31 +23,30 @@ class LDA(object):
             yMat = yMat.T
         assert XMat.shape[0] == yMat.shape[0]
 
+        XMat -= XMat.mean(axis=0)
         Sw, Sb = calc_Sw_Sb(XMat, yMat)
+        evals, evecs = eig(Sw, Sb)
 
-        if self.method == 'svd':
-            U, S, V = np.linalg.svd(Sw)
-            S = np.diag(S)
-            Sw_inversed = V * np.linalg.pinv(S) * U.T
-            A = Sw_inversed * Sb
-        elif self.method == 'auto':
-            A = np.pinv(Sw) * Sb
+        np.ascontiguousarray(evals)
+        np.ascontiguousarray(evecs)
 
-        eigval, eigvec = np.linalg.eig(A)
-        eigval = eigval[0:self.n_components]
-        eigvec = eigvec[:, 0:self.n_components]
-        X_transformed = XMat * eigvec
-        self.W = eigvec[:, 1]
+        idx = np.argsort(evals)
+        idx = idx[::-1]
+        evecs = evecs[:, idx]
+
+        self.W = evecs[:, :self.n_components]
+        X_transformed = np.dot(XMat, self.W)
 
         return X_transformed
 
-    def fit(self, X, y):
-        X_transformed = LDA.transform(X, y)
 
+    def fit(self, X, y):
+        X_transformed = LDA.transform(self, X, y)
 
 
     def predict(self, X):
-        pass
+        X_transformed = np.dot(X, self.W)
+        return X_transformed
 
 
 
@@ -146,6 +142,32 @@ def calc_Sw_Sb(X, y):
     Sb = X_cov - Sw
     return Sw, Sb
 
+
+def another_Sw_Sb(X, y):
+    XMat = np.array(X)
+    yMat = np.array(y)
+    n_samples, n_features = XMat.shape
+
+    Sw = np.zeros((n_features, n_features))
+    Sb = np.zeros((n_features, n_features))
+
+    labels = np.unique(yMat)
+    for c in range(len(labels)):
+        idx = np.squeeze(np.where(yMat == labels[c]))
+        X_c = np.squeeze(XMat[idx[0], :]).T
+        Sw += X_c.shape[0] * np.cov(X_c)
+
+    total_mean = np.mean(XMat, axis=0)
+    for c in range(len(labels)):
+        idx = np.squeeze(np.where(yMat == labels[c]))
+        X_c = np.squeeze(XMat[idx[0], :])
+        mean_c = (np.mean(X_c, axis=0) - total_mean)
+        Sb += X_c.shape[0] * mean_c.T * mean_c
+
+    return Sw, Sb
+
+
+
 def sigmoid(x=None):
     return 1.0 / (1 + np.exp(-x))
 
@@ -154,3 +176,45 @@ def logistic_predictions(weights, x):
     return sigmoid(np.dot(x, weights))
 
 
+
+
+class LDA_undoned(object):
+    def __init__(self, method='auto', n_components=1):
+        self.method = method
+        self.n_components = n_components
+
+    def transform(self, X, y):
+        """transform function"""
+        XMat = np.array(X)
+        yMat = np.array(y)
+
+        if XMat.shape[0] != yMat.shape[0]:
+            yMat = yMat.T
+        assert XMat.shape[0] == yMat.shape[0]
+
+        XMat -= XMat.mean(axis=0)
+        Sw, Sb = calc_Sw_Sb(XMat, yMat)
+
+        if self.method == 'svd':
+            U, S, V = np.linalg.svd(Sw)
+            S = np.diag(S)
+            Sw_inversed = V * np.linalg.pinv(S) * U.T
+            A = Sw_inversed * Sb
+        elif self.method == 'auto':
+            A = np.linalg.pinv(Sw) * Sb
+
+        eigval, eigvec = np.linalg.eig(A)
+        eigval = eigval[0:self.n_components]
+        eigvec = eigvec[:, 0:self.n_components]
+        X_transformed = np.dot(XMat, eigvec)
+        self.W = eigvec
+
+        return X_transformed
+
+
+    def fit(self, X, y):
+        X_transformed = LDA_undoned.transform(self, X, y)
+
+
+    def predict(self, X):
+        pass

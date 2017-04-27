@@ -8,65 +8,35 @@
 
 
 import pandas as pd
-import autograd.numpy as np
-
-
-# data = pd.read_csv('../Data/data_test_LDA.csv').as_matrix()
-# X_train = data[:, 0:-1]
-# y_train = data[:, -1].reshape(-1, 1)
+import sys
+sys.path.append('..')
+from SupervisedLearning.LinearClassification import *
 
 
 print('Loading data....')
-data = pd.read_table('../Data/data_test_classifer.txt', header=None).as_matrix()
 
+data = pd.read_csv('../Data/data_test_LDA.csv').as_matrix()
 X_train = data[:, 0:-1]
 y_train = data[:, -1].reshape(-1, 1)
+
+
+# data = pd.read_table('../Data/data_test_classifer.txt', header=None).as_matrix()
+#
+# X_train = data[:, 0:-1]
+# y_train = data[:, -1].reshape(-1, 1)
+
 
 
 print("shape of X_train:", X_train.shape)
 print("shape of y_train:", y_train.shape)
 
 
+lda = LDA(n_components=1)
+lda.fit(X_train, y_train)
+
+X_transformed = lda.predict(X_train)
+
+print(X_transformed.shape)
 
 
-def calc_Sw_Sb(X, y):
-    XMat = np.array(X)
-    yMat = np.array(y)
-    n_samples, n_features = XMat.shape
-
-    Sw = np.zeros((n_features, n_features))
-    Sb = np.zeros((n_features, n_features))
-
-    X_cov = np.cov(XMat.T)
-
-    labels = np.unique(yMat)
-    for c in range(len(labels)):
-        idx = np.squeeze(np.where(yMat == labels[c]))
-        X_c = np.squeeze(XMat[idx[0],:])
-        c_cov = np.cov(X_c.T)
-        Sw += float(idx.shape[0]) / n_samples * c_cov
-
-    Sb = X_cov - Sw
-
-    U, S, V = np.linalg.svd(Sw)
-    S = np.diag(S)
-    Sw_inversed = V * np.linalg.pinv(S) * U.T
-    A1 = Sw_inversed * Sb
-    A2 = np.linalg.pinv(Sw) * Sb
-    print(A2)
-    eigval, eigvec = np.linalg.eig(A2)
-    print(eigvec[:,1])
-    print(eigvec)
-    return Sw, Sb
-
-
-
-
-
-
-
-
-
-
-calc_Sw_Sb(X_train, y_train)
 

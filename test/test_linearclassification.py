@@ -27,10 +27,9 @@ print("shape of y_train:", y_train.shape)
 
 
 
-model = LogisticRegression(lr=1e-5, max_iters=10000, verbose=1, print_step=100)
+model = LogisticRegression(lr=1e-4, alpha=0.5, reg='l2', max_iters=4000, verbose=1, print_step=2000)
 model.fit(X_train, y_train)
 y_pred = model.predict(X_train)
-print(y_pred)
 true_num = 0.0
 for i in range(100):
 

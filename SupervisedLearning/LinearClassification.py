@@ -31,12 +31,14 @@ class LDA(object):
 
 
 class LogisticRegression(object):
-    def __init__(self, lr=0.1, max_iters=1000, verbose=0, print_step=1):
+    def __init__(self, lr=0.1, alpha=0.5, reg=None, max_iters=1000, verbose=0, print_step=1):
         """linear model to classify"""
         self.lr = lr
         self.max_iters = max_iters
         self.verbose = verbose
         self.print_step = print_step
+        self.alpha = alpha
+        self.reg = reg
         self.W = None
 
 
@@ -45,7 +47,15 @@ class LogisticRegression(object):
         def calc_loss(W):
             y_pred = logistic_predictions(W, XMat)
             label_probabilities = y_pred * yMat + (1 - y_pred) * (1 - yMat)
-            return -np.sum(np.log(label_probabilities))
+            if self.reg is None:
+                return -np.sum(np.log(label_probabilities))
+            elif self.reg == 'l1':
+                return -np.sum(np.log(label_probabilities))+np.sum(self.alpha*(np.abs(W[0:-1])))
+            elif self.reg == 'l2':
+                return -np.sum(np.log(label_probabilities))+np.sum(self.alpha*W[0:-1]*W[0:-1])
+            else:
+                print("the reg can only be None, l1 or l2!")
+                return ValueError
 
         verbose = self.verbose
         print_step = self.print_step
@@ -58,7 +68,7 @@ class LogisticRegression(object):
             yMat = yMat.T
         assert XMat.shape[0] == yMat.shape[0]
 
-        grad_fun = grad(calc_loss)
+        grad_fun = elementwise_grad(calc_loss)
 
         n_samples, n_features = X.shape
         n_outdim = y.shape[1]

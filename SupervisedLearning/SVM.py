@@ -8,117 +8,68 @@
 import autograd.numpy as np
 from autograd import grad, elementwise_grad
 
+from sklearn.svm import SVC
+from sklearn.svm import SVR
+
+
 class SVMRegressor(object):
     """SVM Regression"""
 
-    def __init__(self, lr=0.1, alpha=0.0, max_iters=5, verbose=0, print_step=1):
-        self.lr = lr
-        self.max_iters = max_iters
+    def __init__(self, kernel='rbf', degree=3, gamma='auto', coef0=0.0,
+                 tol=1e-3, C=1.0, epsilon=0.1, cache_size=200, verbose=0,
+                 print_step=1, max_iter=-1):
+        self.kernel = kernel
+        self.degree = degree
+        self.gamma = gamma
+        self.coef0 = coef0
+        self.tol = tol
+        self.C = C
+        self.epsilon = epsilon
+        self.cache_size = cache_size
         self.verbose = verbose
         self.print_step = print_step
-        self.alpha = alpha
-        self.W = None
+        self.max_iter = max_iter
 
 
     def fit(self, X, y):
-        # def loss function
-        def calc_linear_loss(W):
-            y_pred = np.dot(XMat, W)
-            return np.sqrt((np.power(yMat - y_pred, 2))).mean()
-
-        verbose = self.verbose
-        print_step = self.print_step
-        max_iters = self.max_iters
-
-        XMat = np.array(X)
-        yMat = np.array(y)
-
-        if XMat.shape[0] != yMat.shape[0]:
-            yMat = yMat.T
-        assert XMat.shape[0] == yMat.shape[0]
-
-        grad_fun = grad(calc_linear_loss)
-
-        n_samples, n_features = X.shape
-        n_outdim = y.shape[1]
-        XMat = np.hstack([XMat, np.ones((n_samples, 1))])
-
-        self.W = np.random.randn(n_features+1, n_outdim)
-        for it in range(max_iters+1):
-            loss = calc_linear_loss(self.W)
-            grad_params = grad_fun(self.W)
-
-            # update params
-            self.W -= self.lr * grad_params
-
-            if verbose and it % print_step == 0:
-                print('iteration %d / %d: loss %f' % (it, max_iters, loss))
+        pass
 
 
     def predict(self, X):
         """Predict function"""
-        XMat = np.array(X)
-        n_samples = XMat.shape[0]
-        XMat = np.hstack([XMat, np.ones((n_samples, 1))])
-        ypred = np.dot(XMat, self.W)
-
-        return ypred
-
+        pass
 
 
 
 class SVMClassifier(object):
     """SVM Classifier"""
 
-    def __init__(self, lr=0.1, alpha=0.0, max_iters=5, verbose=0, print_step=1):
-        self.lr = lr
-        self.max_iters = max_iters
+    def __init__(self, C=1.0, kernel='rbf', degree=3, gamma='auto',
+                 coef0=0.0, shrinking=True, probability=False,
+                 tol=1e-3, cache_size=200, class_weight=None,
+                 verbose=0, print_step=1, max_iter=-1,
+                 decision_function_shape=None, random_state=None):
+        self.C = C
+        self.kernel = kernel
+        self.degree = degree
+        self.gamma = gamma
+        self.coef0 = coef0
+        self.shrinking = shrinking
+        self.probability = probability
+        self.tol = tol
+        self.cache_size = cache_size
+        self.class_weight = class_weight
         self.verbose = verbose
         self.print_step = print_step
-        self.alpha = alpha
-        self.W = None
+        self.max_inter = max_iter
+        self.decision_function_shape = decision_function_shape
+        self.random_state = random_state
 
 
     def fit(self, X, y):
-        # def loss function
-        def calc_linear_loss(W):
-            y_pred = np.dot(XMat, W)
-            return np.sqrt((np.power(yMat - y_pred, 2))).mean()
-
-        verbose = self.verbose
-        print_step = self.print_step
-        max_iters = self.max_iters
-
-        XMat = np.array(X)
-        yMat = np.array(y)
-
-        if XMat.shape[0] != yMat.shape[0]:
-            yMat = yMat.T
-        assert XMat.shape[0] == yMat.shape[0]
-
-        grad_fun = grad(calc_linear_loss)
-
-        n_samples, n_features = X.shape
-        n_outdim = y.shape[1]
-        XMat = np.hstack([XMat, np.ones((n_samples, 1))])
-
-        self.W = np.random.randn(n_features+1, n_outdim)
-        for it in range(max_iters+1):
-            loss = calc_linear_loss(self.W)
-            grad_params = grad_fun(self.W)
-
-            # update params
-            self.W -= self.lr * grad_params
-
-            if verbose and it % print_step == 0:
-                print('iteration %d / %d: loss %f' % (it, max_iters, loss))
+        pass
 
 
     def predict(self, X):
         """Predict function"""
-        XMat = np.array(X)
-        n_samples = XMat.shape[0]
-        XMat = np.hstack([XMat, np.ones((n_samples, 1))])
-        ypred = np.dot(XMat, self.W)
-
-        return ypred
+        pass

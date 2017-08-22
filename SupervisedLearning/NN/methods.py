@@ -14,7 +14,7 @@ from theano.tensor.shared_randomstreams import RandomStreams
 from collections import OrderedDict
 import copy
 import sys
-sys.setrecursionlimit(1000000) #例如这里设置为一百万
+sys.setrecursionlimit(1000000) 
 
 
 def handle_binary_vector(given_list, k):
@@ -94,9 +94,7 @@ def scale(X, max_norm):
 
 
 def SGD(loss, params, learning_rate, lambda2=0.05):
-    # problem in update
-    # updates = {}
-    # grads have no value??
+
     updates = OrderedDict()
     grads = T.grad(cost=loss, wrt=params)
 
@@ -113,7 +111,7 @@ def momentum(loss, params, caches, learning_rate=0.1, rho=0.1, clip_at=0.0, scal
 
     for p, c, g in zip(params, caches, grads):
         if clip_at > 0.0:
-            grad = clip(g, clip_at)    # Clip（limit）the values in the array.这个方法会给出一个区间，在区间之外的数字将被剪除到区间的边缘
+            grad = clip(g, clip_at)    
         else:
             grad = g
 
@@ -129,7 +127,7 @@ def momentum(loss, params, caches, learning_rate=0.1, rho=0.1, clip_at=0.0, scal
 
 
 def get_params(layers):
-    # zhe ge hanshu de gongneng shi?
+
     params = []
     for layer in layers:
         for param in layer.get_params():

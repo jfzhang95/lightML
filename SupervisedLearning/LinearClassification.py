@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 """
 @author: Jeff Zhang
-@date:   2017-04-27
+@date:   2017-08-21
 """
 
 import autograd.numpy as np

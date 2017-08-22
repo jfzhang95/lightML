@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90f658ec-4280-4d5b-b354-d6e1b6514fa6" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test_KNN.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/test_NN.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SupervisedLearning/KNN.py" afterPath="$PROJECT_DIR$/SupervisedLearning/KNN.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_linearclassification.py" afterPath="$PROJECT_DIR$/test/test_linearclassification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SupervisedLearning/NeuralNetwork.py" afterPath="$PROJECT_DIR$/SupervisedLearning/NeuralNetwork.py" />
     </list>
     <ignored path="lightML.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,33 +25,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SVM.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SupervisedLearning/SVM.py">
+      <file leaf-file-name="NeuralNetwork.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SupervisedLearning/NeuralNetwork.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="161">
-              <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KNN.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SupervisedLearning/KNN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_KNN.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_KNN.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="29" column="12" selection-start-line="29" selection-start-column="12" selection-end-line="29" selection-end-column="12" />
+            <state relative-caret-position="277">
+              <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
               <folding>
-                <element signature="e#92#110#0" expanded="true" />
+                <element signature="e#71#89#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_NN.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test_NN.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="268">
+              <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+              <folding>
+                <element signature="e#94#113#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -61,8 +52,8 @@
       <file leaf-file-name="test_linearclassification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/test_linearclassification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+            <state relative-caret-position="92">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="25" selection-end-column="41" />
               <folding>
                 <element signature="e#96#115#0" expanded="true" />
               </folding>
@@ -102,6 +93,8 @@
         <option value="$PROJECT_DIR$/SupervisedLearning/KNN.py" />
         <option value="$PROJECT_DIR$/test/test_linearclassification.py" />
         <option value="$PROJECT_DIR$/test/test_KNN.py" />
+        <option value="$PROJECT_DIR$/test/test_NN.py" />
+        <option value="$PROJECT_DIR$/SupervisedLearning/NeuralNetwork.py" />
       </list>
     </option>
   </component>
@@ -244,24 +237,7 @@
       </console-settings>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_KNN">
-    <configuration default="false" name="test_linearregression" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="lightML" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_linearregression.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.test_NN">
     <configuration default="false" name="test_linearclassification" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -326,6 +302,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="lightML" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_KNN.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="test_NN" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="lightML" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test/test_NN.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -465,19 +458,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.test_linearregression" />
-      <item index="1" class="java.lang.String" itemvalue="Python.test_linearclassification" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test_LDA" />
-      <item index="3" class="java.lang.String" itemvalue="Python.KNN" />
-      <item index="4" class="java.lang.String" itemvalue="Python.test_KNN" />
+      <item index="0" class="java.lang.String" itemvalue="Python.test_linearclassification" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test_LDA" />
+      <item index="2" class="java.lang.String" itemvalue="Python.KNN" />
+      <item index="3" class="java.lang.String" itemvalue="Python.test_KNN" />
+      <item index="4" class="java.lang.String" itemvalue="Python.test_NN" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.test_KNN" />
-        <item index="1" class="java.lang.String" itemvalue="Python.KNN" />
-        <item index="2" class="java.lang.String" itemvalue="Python.test_LDA" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test_linearclassification" />
-        <item index="4" class="java.lang.String" itemvalue="Python.test_linearregression" />
+        <item index="0" class="java.lang.String" itemvalue="Python.test_NN" />
+        <item index="1" class="java.lang.String" itemvalue="Python.test_KNN" />
+        <item index="2" class="java.lang.String" itemvalue="Python.KNN" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test_LDA" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test_linearclassification" />
       </list>
     </recent_temporary>
   </component>
@@ -506,7 +499,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27653214" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27653214" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -538,24 +531,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test/test_LDA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="19" selection-start-line="4" selection-start-column="19" selection-end-line="4" selection-end-column="19" />
-          <folding>
-            <element signature="e#94#113#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SupervisedLearning/LinearClassification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1863">
-          <caret line="82" column="25" selection-start-line="82" selection-start-column="25" selection-end-line="82" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_linearclassification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="644">
@@ -797,14 +772,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SupervisedLearning/SVM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/anaconda3/lib/python3.5/site-packages/sklearn/neighbors/base.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -873,21 +840,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/SupervisedLearning/SVM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="23" selection-start-line="7" selection-start-column="23" selection-end-line="7" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SupervisedLearning/KNN.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="4" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_linearclassification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+        <state relative-caret-position="92">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="25" selection-end-column="41" />
           <folding>
             <element signature="e#96#115#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SupervisedLearning/KNN.py">
+    <entry file="file://$PROJECT_DIR$/test/test_NN.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
-          <caret line="60" column="8" selection-start-line="60" selection-start-column="8" selection-end-line="60" selection-end-column="8" />
-          <folding />
+        <state relative-caret-position="268">
+          <caret line="25" column="25" selection-start-line="25" selection-start-column="25" selection-end-line="25" selection-end-column="25" />
+          <folding>
+            <element signature="e#94#113#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SupervisedLearning/NeuralNetwork.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="131" column="0" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
+          <folding>
+            <element signature="e#71#89#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

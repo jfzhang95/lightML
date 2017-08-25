@@ -9,6 +9,7 @@
 
 import pandas as pd
 import sys
+import numpy as np
 sys.path.append('..')
 from SupervisedLearning.NeuralNetwork import NeuralNetwork
 
@@ -20,9 +21,24 @@ X_train = data[:, 0:2]
 y_train = data[:, -1].reshape(-1, 1)
 
 
-print("shape of X_train:", X_train.shape)
-print("shape of y_train:", y_train.shape)
+labels = []
+for label in y_train:
+    if label == 0:
+        labels.append([1,0])
+    else:
+        labels.append([0,1])
 
-n = NeuralNetwork(2, 4, 1)
-n.fit(X_train, y_train)
-n.predict(X_train, y_train)
+labels = np.array(labels)
+
+print("shape of X_train:", X_train.shape)
+print("shape of y_train:", labels.shape)
+
+nn = NeuralNetwork(2, 4, 2)
+nn.fit(X_train, labels, iterations=2000, lr=1e-2)
+y_pred = nn.predict(X_train)
+
+correct_count = 0
+for i in range(len(X_train)):
+    if y_pred[i] == y_train[i]:
+        correct_count += 1
+print('accuracy:{}%'.format(correct_count/100))

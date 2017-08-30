@@ -2,7 +2,7 @@
 #-*- coding:utf-8 -*-
 """
 @author: Jeff Zhang
-@date: 2017-05-04
+@date:   2017-05-04
 """
 
 import matplotlib.pyplot as plt

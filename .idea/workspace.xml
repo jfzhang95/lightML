@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90f658ec-4280-4d5b-b354-d6e1b6514fa6" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_SVR.py" afterPath="$PROJECT_DIR$/test/test_SVR.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/test_linearregression.py" afterPath="$PROJECT_DIR$/test/test_linearregression.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SupervisedLearning/EM.py" afterPath="$PROJECT_DIR$/SupervisedLearning/EM.py" />
     </list>
     <ignored path="lightML.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,12 +23,36 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Bayes.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Bayes.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/SupervisedLearning/Bayes.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EM.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/SupervisedLearning/EM.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-642">
+              <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+              <folding>
+                <element signature="e#93#120#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_Kmeans.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test_Kmeans.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+              <folding>
+                <element signature="e#93#111#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -72,6 +95,7 @@
         <option value="$PROJECT_DIR$/test/test_Kmeans.py" />
         <option value="$PROJECT_DIR$/test/test_linearregression.py" />
         <option value="$PROJECT_DIR$/test/test_SVR.py" />
+        <option value="$PROJECT_DIR$/SupervisedLearning/EM.py" />
       </list>
     </option>
   </component>
@@ -673,16 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_Kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="780">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
-          <folding>
-            <element signature="e#93#111#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/test_SVR.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="92">
@@ -749,14 +763,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SupervisedLearning/EM.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/SupervisedLearning/AdaBoost.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -786,6 +792,26 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_Kmeans.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#93#111#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SupervisedLearning/EM.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-642">
+          <caret line="5" column="3" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="3" />
+          <folding>
+            <element signature="e#93#120#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

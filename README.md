@@ -12,7 +12,7 @@ Some basic machine learning algorithms:
 
 # Test
 run test.py, you will see:
-![](figure_1.png)
+![](Data/figure_1.png)
 
 # License
 This project is licensed under the terms of the MIT license.
